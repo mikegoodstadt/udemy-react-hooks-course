@@ -10,10 +10,15 @@ const initList = [
 
 function App() {
   const [list, setList] = useState(initList);
+  const [editable, setEditable] = useState(false);
 
-  const removeUnhealthyHandle = (e) => {
-    const filteredList = list.filter(v => v.calorie <= 50);
+  function removeItemHandle(e) {
+    const filteredList = list.filter((v) => v.name !== e.target.name);
     setList(filteredList);
+  }
+
+  function makeEditableHandle() {
+    setEditable(true);
   }
 
   return (
@@ -21,9 +26,16 @@ function App() {
       <header className='App-header'>
         <h2>Grocery List</h2>
         {list.map((v, k) => {
-          return <Item key={`${k}${v.name}${v.calorie}`} item={v}></Item>;
+          return (
+            <Item
+              key={`${k}${v.name}${v.calorie}`}
+              item={v}
+              onClick={removeItemHandle}
+              editable={editable}
+              onDoubleClick={makeEditableHandle}
+            ></Item>
+          );
         })}
-        <button onClick={removeUnhealthyHandle} className="remove-button">Remove Unhealthy</button>
       </header>
     </div>
   );
