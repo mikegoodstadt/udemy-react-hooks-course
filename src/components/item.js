@@ -5,7 +5,11 @@ function Item(props) {
   return (
     <div className='item-style'>
       {props.editable ? (
-        <input type='text' defaultValue={props.item.name}></input>
+        <input
+          type='text'
+          onKeyPress={(e) => props.onKeyPress(e, props.index)}
+          defaultValue={props.item.name}
+        ></input>
       ) : (
         <h3 onDoubleClick={props.onDoubleClick}>{props.item.name}</h3>
       )}

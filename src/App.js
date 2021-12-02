@@ -21,18 +21,33 @@ function App() {
     setEditable(true);
   }
 
+  function keyPressHandle(e, i) {
+    if (e.key === 'Enter') {
+      setEditable(!editable);
+      console.log(e);
+      console.log(i);
+      setList(
+        list.map((item, k) =>
+          k === i ? { ...item, name: e.target.value } : item
+        )
+      );
+    }
+  }
+
   return (
     <div className='App'>
       <header className='App-header'>
         <h2>Grocery List</h2>
-        {list.map((v, k) => {
+        {list.map((v, i) => {
           return (
             <Item
-              key={`${k}${v.name}${v.calorie}`}
+              key={`${i}${v.name}${v.calorie}`}
               item={v}
               onClick={removeItemHandle}
               editable={editable}
               onDoubleClick={makeEditableHandle}
+              onKeyPress={keyPressHandle}
+              index={i}
             ></Item>
           );
         })}
