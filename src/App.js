@@ -1,50 +1,41 @@
-import React, { useState } from 'react';
+import React, {useState} from 'react';
 import './App.scss';
-import Item from './components/item';
-import useList from './hooks/useList';
-
-const initList = [
-  { name: 'tomato', calorie: 20 },
-  { name: 'rice', calorie: 30 },
-  { name: 'candy', calorie: 100 },
-];
 
 function App() {
-  const items = useList(initList);
-  const [editable, setEditable] = useState(false);
+  const [name, setName] = useState("");
+  const [income, setIncome] = useState("");
 
-  function removeItemHandle(e) {
-    items.removeItem(e.target.name);  
+  function handleNameChange(e) {
+    setName(e.target.value);
   }
 
-  function makeEditableHandle() {
-    setEditable(true);
+  function handleIncomeChange(e) {
+    setIncome(e.target.value);
   }
 
-  function keyPressHandle(e, i) {
-    if (e.key === 'Enter') {
-      setEditable(!editable);
-      items.saveItem(i, e.target.value)  
-    }
+  function onSubmitHandle(e) {
+    //e.preventDefault();
+    console.log('State =', name, income);
   }
 
   return (
     <div className='App'>
       <header className='App-header'>
-        <h2>Grocery List</h2>
-        {items.list.map((v, i) => {
-          return (
-            <Item
-              key={`${i}${v.name}${v.calorie}`}
-              item={v}
-              onClick={removeItemHandle}
-              editable={editable}
-              onDoubleClick={makeEditableHandle}
-              onKeyPress={keyPressHandle}
-              index={i}
-            ></Item>
-          );
-        })}
+        <form onSubmit={onSubmitHandle}>
+          <div>
+            <span>Name:</span>
+            <input value={name} type="text" onChange={handleNameChange}></input>
+          </div>
+          <div>
+            <span>Income:</span>
+            <select value={income} onChange={handleIncomeChange}>
+              <option value="high">High</option>
+              <option value="mid">Mid</option>
+              <option value="low">Low</option>
+            </select>
+            <input type="submit" value="submit"></input>
+          </div>
+        </form>
       </header>
     </div>
   );
