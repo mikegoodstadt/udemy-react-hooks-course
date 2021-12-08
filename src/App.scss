@@ -26,10 +26,12 @@
 
 .App-link {
   color: #61dafb;
+  text-decoration: none;
 }
 
 .App-link-active {
   color: #fbec61;
+  text-decoration: none;
 }
 
 @keyframes App-logo-spin {
@@ -39,4 +41,21 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.ul-style {
+  display: flex;
+  flex-direction: row;
+}
+
+.li-style {
+  width: 200px;
+  list-style-type: none;
+  padding: 10px;
+  border: 1px solid grey;
+}
+
+.button {
+  width: 100px;
+  padding: 5px;
 }
