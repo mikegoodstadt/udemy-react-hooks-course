@@ -31,6 +31,16 @@
   flex-direction: column;
 }
 
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
 .ul-style {
   display: flex;
   flex-direction: row;
@@ -43,12 +53,15 @@
   border: 1px solid grey;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.button-style {
+  padding: 5px;
+  width: 200px;
+  color: #61dafb;
+  background: #565555;
+  font-size: 20px;
+  cursor: pointer;
 }
 
+.button-style:disabled {
+  background: #dddddd;
+}
