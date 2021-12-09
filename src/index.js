@@ -3,15 +3,16 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import {createStore, combineReducers} from 'redux';
+import {createStore, combineReducers, applyMiddleware} from 'redux';
 import balanceReducer from './store/balance-reducer';
 import loanReducer from './store/loan-reducer';
 import {Provider} from 'react-redux';
+import thunk from 'redux-thunk';
 
 const store = createStore(combineReducers({
   balanceReducer,
   loanReducer
-}));
+}), applyMiddleware(thunk));
 
 ReactDOM.render(
   <React.StrictMode>
