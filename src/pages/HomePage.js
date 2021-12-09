@@ -1,11 +1,9 @@
-import React from 'react'
+import React from 'react';
+import { useSelector } from 'react-redux';
 
 function HomePage() {
-  return (
-    <div>
-      Home Page
-    </div>
-  )
+  const balance = useSelector((state) => state.balance);
+  return <h1>Balance: {balance}</h1>;
 }
 
-export default HomePage
+export default HomePage;

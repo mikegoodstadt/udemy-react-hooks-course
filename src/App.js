@@ -16,9 +16,9 @@ function App() {
           <li className='li-style'><NavLink to='/withdrawal' className='App-link'>Withdrawal</NavLink></li>
         </ul>
         <Routes>
-          <Route path='/' element={HomePage}></Route>
-          <Route path='/deposit' element={DepositPage}></Route>
-          <Route path='/withdrawal' element={WithdrawalPage}></Route>
+          <Route path='/' element={<HomePage />}></Route>
+          <Route path='/deposit' element={<DepositPage />}></Route>
+          <Route path='/withdrawal' element={<WithdrawalPage />}></Route>
         </Routes>
         </header>
       </div>
