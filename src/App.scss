@@ -26,6 +26,21 @@
 
 .App-link {
   color: #61dafb;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+}
+
+.ul-style {
+  display: flex;
+  flex-direction: row;
+}
+
+.li-style {
+  list-style-type: none;
+  width: 200px;
+  padding: 5px;
+  border: 1px solid grey;
 }
 
 @keyframes App-logo-spin {
@@ -36,3 +51,4 @@
     transform: rotate(360deg);
   }
 }
+
