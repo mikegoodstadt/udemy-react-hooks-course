@@ -36,3 +36,20 @@
     transform: rotate(360deg);
   }
 }
+
+.col {
+  font-size: 0px;
+  min-width: 308px;
+}
+
+.row {
+  display: inline-block;
+  border: 1px solid grey;
+  font-size: 90px;
+  width: 100px;
+  height: 100px;
+  text-align: center;
+  line-height: 100px;
+  box-sizing: border-box;
+  vertical-align: middle;
+}
