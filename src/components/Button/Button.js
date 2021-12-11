@@ -2,6 +2,13 @@ import React from 'react'
 import './../../styles/common.scss';
 import './Button.scss';
 
+/**
+ *
+ * @deprecated Do not use
+ * @author Mike
+ * @version 1.1.1
+ */
+
 function Button({children, type, onClick}) {
   let localClass='primary';
 
